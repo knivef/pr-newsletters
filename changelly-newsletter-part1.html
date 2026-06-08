@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayRam Weekly Update | June 1–7, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #f0f0f0; font-family: Arial, Helvetica, sans-serif; }
+
+    .email-wrapper { padding: 20px 0; background-color: #f0f0f0; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
+
+    /* Preheader */
+    .preheader {
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 12px;
+      color: #888888;
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .preheader a { color: #888888; text-decoration: underline; }
+
+    /* Logo header */
+    .logo-wrap {
+      text-align: center;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo-icon { width: 34px; height: 34px; }
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111111;
+      letter-spacing: -0.3px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 32px 40px 28px;
+    }
+    .hero-label {
+      display: inline-block;
+      background-color: #e8f5e8;
+      color: #2a8a2a;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111111;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .hero h1 .green { color: #00b400; }
+    .hero-date {
+      font-size: 13px;
+      color: #888888;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .hero-divider { height: 1px; background: #eeeeee; margin: 0 0 20px; }
+    .hero-greeting {
+      font-size: 15px;
+      color: #333333;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* Section label */
+    .section-label {
+      padding: 20px 40px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999999;
+    }
+
+    /* Cards */
+    .card-wrap { padding: 0 40px 8px; }
+    .card {
+      background-color: #f0f0f0;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    /* Card image placeholder */
+    .card-img-placeholder {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-radius: 16px 16px 0 0;
+    }
+    .card-img-placeholder.dark { background-color: #181826; }
+    .card-img-placeholder.indigo { background-color: #3730a3; }
+    .card-img-placeholder .ph-icon {
+      width: 38px;
+      height: 38px;
+      border: 2px dashed rgba(255,255,255,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .card-body {
+      padding: 22px 20px 24px;
+      background-color: #f0f0f0;
+    }
+    .card-body h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111111;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .card-body .card-sub {
+      font-size: 14px;
+      color: #555555;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    /* Who it's for / what you can configure label */
+    .list-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #333333;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    /* Feature list — white inner cards */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #333333;
+      line-height: 1.5;
+    }
+    .feat-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+      margin-top: 1px;
+    }
+    .feature-list a { color: #1a6fc4; text-decoration: underline; }
+
+    /* Release note cards */
+    .release-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+    }
+    .release-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 10px;
+    }
+    .release-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.3;
+    }
+    .release-badge {
+      font-size: 10px;
+      font-weight: 700;
+      color: #2a8a2a;
+      background-color: #e8f5e8;
+      padding: 3px 10px;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+    .release-card p {
+      font-size: 13.5px;
+      color: #555555;
+      line-height: 1.6;
+    }
+    .release-card a { color: #1a6fc4; text-decoration: underline; }
+
+    /* CTA button */
+    .btn-center { text-align: center; margin-top: 8px; }
+    .btn-green {
+      display: inline-block;
+      background-color: #4fc24f;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.1px;
+    }
+    .btn-outline {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111111;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid #dddddd;
+    }
+
+    /* Divider */
+    .divider-full { height: 1px; background-color: #eeeeee; }
+
+    /* Reach Out */
+    .reach-out {
+      margin: 8px 40px 16px;
+      background-color: #f0f0f0;
+      border-radius: 16px;
+      padding: 26px 24px;
+      text-align: center;
+    }
+    .reach-out h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+    .reach-out > p {
+      font-size: 14px;
+      color: #555555;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .avatar-placeholder {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background-color: #c8a0a0;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .avatar-placeholder svg { width: 66px; height: 66px; }
+    .contact-info { font-size: 14px; color: #333333; line-height: 2; }
+    .contact-info ul { list-style: disc; padding-left: 18px; }
+    .contact-info a { color: #1a6fc4; text-decoration: underline; }
+
+    .btn-green-reach {
+      display: inline-block;
+      background-color: #4fc24f;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+    .reach-sign {
+      font-size: 14px;
+      color: #666666;
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    /* Feedback */
+    .feedback-row {
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #555555;
+    }
+    .feedback-row .thumbs {
+      display: inline-flex;
+      gap: 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .thumb-btn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 16px 30px 24px;
+    }
+    .footer-copy { font-size: 13px; color: #00b400; font-weight: 700; margin-bottom: 6px; }
+    .footer-links { margin-bottom: 6px; }
+    .footer-links a { font-size: 12.5px; color: #00b400; font-weight: 700; text-decoration: none; }
+    .footer-links span { color: #aaaaaa; margin: 0 5px; }
+    .footer-unsub { display: block; font-size: 12.5px; color: #00b400; font-weight: 700; text-decoration: underline; margin-bottom: 14px; }
+    .footer-legal { font-size: 10.5px; color: #aaaaaa; line-height: 1.55; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="email-container">
+
+    <!-- Preheader -->
+    <div class="preheader">
+      Email doesn't look properly? <a href="#">Click the link</a>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <a href="#">
+        <img src="https://res.cloudinary.com/dk1xntys7/image/upload/v1780918331/payram_horizontalVividGreen_epeyja.svg" alt="PayRam" style="height: 36px; display: inline-block;">
+      </a>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-label">Weekly Update</div>
+      <h1>What's new this week<br>at <span class="green">PayRam</span></h1>
+      <div class="hero-date">June 1–7, 2026</div>
+      <div class="hero-divider"></div>
+      <p class="hero-greeting">
+        Hey [First Name],<br><br>
+        June kicked off with a big one. Here's everything that shipped and what it means for your business.
+      </p>
+    </div>
+
+    <!-- Operator Mode Feature Card -->
+    <div class="section-label">New Feature</div>
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://res.cloudinary.com/dk1xntys7/image/upload/v1780917957/1_gglutj.png" alt="Operator Mode" style="width:100%; display:block; border-radius: 16px 16px 0 0;">
+        <div class="card-body">
+          <h2>Introducing Operator Mode</h2>
+          <p class="card-sub">Anyone can now become a payment facilitator with PayRam. Operator Mode lets you deploy a PayRam instance on your own server, onboard merchants under your platform, and charge custom processing fees. There is no paperwork, no setup costs, and no middlemen involved.<br><br>Whether you are a SaaS platform looking to monetize payments, a development agency building embedded finance into client products, or any business that wants to offer payment processing as a service, Operator Mode gets you there without the usual compliance overhead or gateway negotiations.</p>
+
+          <div class="list-label">How it works</div>
+          <ul class="feature-list">
+            <li><span class="feat-icon">1️⃣</span><span>Deploy a PayRam instance on your server</span></li>
+            <li><span class="feat-icon">2️⃣</span><span>Select Operator Mode during setup and complete configuration</span></li>
+            <li><span class="feat-icon">3️⃣</span><span>Start onboarding merchant tenants</span></li>
+            <li><span class="feat-icon">4️⃣</span><span>Set custom fees per merchant (up to 15%)</span></li>
+            <li><span class="feat-icon">5️⃣</span><span>Each merchant gets a dedicated dashboard with their own login</span></li>
+          </ul>
+
+          <div class="list-label">What your merchants get</div>
+          <ul class="feature-list">
+            <li><span class="feat-icon">🖥️</span><span>A dedicated storefront dashboard</span></li>
+            <li><span class="feat-icon">💳</span><span>Fiat and crypto payment processing out of the box</span></li>
+            <li><span class="feat-icon">🔒</span><span>Clean separation from other tenants on your platform</span></li>
+          </ul>
+
+          <p class="card-sub" style="text-align:center; margin-bottom: 16px;">There is no cost to get started. Deploy, configure, and begin onboarding merchants on day one.</p>
+
+          <div class="btn-center">
+            <a href="https://calendly.com/payram-sales/payram-demo-accept-crypto-payments-docs" class="btn-green">Book a Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Release Notes -->
+    <div class="section-label">New Releases</div>
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://res.cloudinary.com/dk1xntys7/image/upload/v1780917956/2_il33ge.png" alt="What we Shipped in May 2026" style="width:100%; display:block; border-radius: 16px 16px 0 0;">
+        <div class="card-body" style="padding-bottom: 20px;">
+          <h2 style="margin-bottom: 18px;">What we Shipped in May 2026!</h2>
+
+          <div class="release-card">
+            <div class="release-card-header">
+              <h3>Core v3.0.0, Operator Mode</h3>
+              <span class="release-badge">May 27</span>
+            </div>
+            <p>Run a payment gateway for other merchants, set markup fees per chain, and collect your cut on-chain automatically.</p>
+          </div>
+
+          <div class="release-card">
+            <div class="release-card-header">
+              <h3>Frontend v1.0.0</h3>
+              <span class="release-badge">May 27</span>
+            </div>
+            <p>Operator onboarding wizard, live earnings dashboard with real-time refresh, and ETH on Base for merchants.</p>
+          </div>
+
+          <div class="release-card">
+            <div class="release-card-header">
+              <h3>FundSweeper V2</h3>
+              <span class="release-badge">May 27</span>
+            </div>
+            <p>Operator fees now settle in the same on-chain transaction as merchant funds. No redeployment needed.</p>
+          </div>
+
+          <div class="release-card">
+            <div class="release-card-header">
+              <h3>MCP Server v1.1.0</h3>
+              <span class="release-badge">May 27</span>
+            </div>
+            <p>3-step payout flow for AI agents settling funds programmatically.</p>
+          </div>
+
+          <div class="release-card" style="margin-bottom: 0;">
+            <div class="release-card-header">
+              <h3>Patch releases, Core v2.0.4, v2.0.5 / Frontend v0.5.5, v0.5.6</h3>
+              <span class="release-badge">May 2 and 3</span>
+            </div>
+            <p>Sweep history filters, withdrawal lookup, and a false hot wallet warning fixed.</p>
+          </div>
+
+          <div class="btn-center" style="margin-top: 22px;">
+            <a href="https://payram.com/releases?utm_source=email&utm_medium=newsletter&utm_campaign=may-2026-releases&utm_content=view-all-releases" class="btn-green">View all releases</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Questions / Reach Out -->
+    <div class="reach-out">
+      <h2>Questions?</h2>
+      <p>Reply to this email or reach us at <a href="mailto:support@payram.com" style="color:#1a6fc4;">support@payram.com</a></p>
+      <div class="contact-row">
+        <div class="avatar-placeholder">
+          <img src="https://res.cloudinary.com/dk1xntys7/image/upload/v1780918732/payram-yellow_urxrqh.png" alt="PayRam" style="width:66px; height:66px; border-radius:50%; object-fit:cover; display:block;">
+        </div>
+        <div class="contact-info">
+          <ul>
+            <li>via e-mail: <a href="mailto:sales@payram.com">sales@payram.com</a></li>
+            <li>via Telegram: <a href="#">@krishanxl</a></li>
+            <li>or book a call on <a href="https://calendly.com/payram-sales/payram-demo-accept-crypto-payments-docs">Calendly</a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="https://payram.com/book-demo" class="btn-green-reach">Book a call now</a>
+    </div>
+
+    <div class="divider-full"></div>
+
+    <!-- Feedback -->
+    <div class="feedback-row">
+      Have you enjoyed this letter?
+      <span class="thumbs">
+        <span class="thumb-btn">&#10084;</span>
+        <span class="thumb-btn">&#128078;</span>
+      </span>
+    </div>
+
+    <div class="divider-full"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-copy">&copy; PayRam 2026</p>
+      <div class="footer-links">
+        <a href="https://www.payram.com/?utm_source=email&utm_medium=newsletter&utm_campaign=weekly-update&utm_content=footer-website">Website</a><span>|</span><a href="https://www.payram.com/privacy-policy?utm_source=email&utm_medium=newsletter&utm_campaign=weekly-update&utm_content=footer-privacy">Privacy Policy</a>
+      </div>
+      <a href="#" class="footer-unsub">Unsubscribe</a>
+      <p class="footer-legal">
+        You're receiving this because you signed up for PayRam product updates.<br><br>
+        Any information provided in this email does not constitute investment advice or investment recommendation nor does it constitute an offer to buy or sell digital assets or other financial instruments. This information should not be used as a substitute for suitable investment and product-related advice. Unless expressly stated otherwise, all pricing information is non-binding.
+      </p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
